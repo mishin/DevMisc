@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CodeSnippets  xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+    <CodeSnippet Format="1.0.0">
+        <Header>
+            <Title>group by with count</Title>
+            <Shortcut>gc</Shortcut>
+            <Description>Code snippet for grouping a query by a property and then selecting the key and count per key</Description>
+            <Author>James Manning</Author>
+            <SnippetTypes>
+                <SnippetType>Expansion</SnippetType>
+            </SnippetTypes>
+        </Header>
+        <Snippet>
+            <Declarations>
+                <Literal>
+                    <ID>variable</ID>
+                    <ToolTip>LINQ query variable to group</ToolTip>
+                    <Default>row</Default>
+                </Literal>
+                <Literal>
+                    <ID>property</ID>
+                    <ToolTip>Property name to group by</ToolTip>
+                    <Default>PropertyToGroupBy</Default>
+                </Literal>
+            </Declarations>
+            <Code Language="csharp">
+<![CDATA[group $variable$ by new { $variable$.$property$ } into $variable$Group
+let count = $variable$Group.Count()
+orderby count descending
+select new
+{
+    $variable$Group.Key.$property$,
+    Count = count,
+}
+$end$]]>
+            </Code>
+        </Snippet>
+    </CodeSnippet>
+</CodeSnippets>

@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CodeSnippets  xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+    <CodeSnippet Format="1.0.0">
+        <Header>
+            <Title>Contract.Requires for a method/ctor string parameter check using String.IsNullOrWhitespace</Title>
+            <Shortcut>args</Shortcut>
+            <Description>Code snippet for using Contract.Requires&lt;ArgumentNullException&gt; to validate a string parameter being passed is not null nor whitespace</Description>
+            <Author>James Manning</Author>
+            <SnippetTypes>
+                <SnippetType>Expansion</SnippetType>
+            </SnippetTypes>
+        </Header>
+        <Snippet>
+            <Declarations>
+                <Literal>
+                    <ID>parameter</ID>
+                    <ToolTip>String parameter to check for null</ToolTip>
+                    <Default>parameter</Default>
+                </Literal>
+            </Declarations>
+            <Code Language="csharp">
+                <![CDATA[Contract.Requires<ArgumentNullException>(String.IsNullOrEmpty($parameter$) == false);$end$]]>
+            </Code>
+        </Snippet>
+    </CodeSnippet>
+</CodeSnippets>

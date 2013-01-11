@@ -1,0 +1,3 @@
+Snippets you create (or use from other places) should be copied to Documents\Visual Studio 2010\Code Snippets\Visual C#\My Code Snippets
+
+NOTE: this is intentionally separate from the 'in-box' ones at locations like C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC#\Snippets

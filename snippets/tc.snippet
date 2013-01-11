@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeSnippets  xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+    <CodeSnippet Format="1.0.0">
+        <Header>
+            <Title>static test class with inner test class for method</Title>
+            <Shortcut>tc</Shortcut>
+            <Description>Code snippet for creating a static test class that contains an inner test class (with [TestClass] attribute) that then contains a test method with comments for arrange/act/assert and a 'throw new NotImplementedException()'</Description>
+            <Author>James Manning</Author>
+            <SnippetTypes>
+                <SnippetType>Expansion</SnippetType>
+            </SnippetTypes>
+        </Header>
+        <Snippet>
+            <Declarations>
+                <Literal>
+                    <ID>nameOfClassToTest</ID>
+                    <ToolTip>Name of the class to test</ToolTip>
+                    <Default>ClassNameGoesHere</Default>
+                </Literal>
+                <Literal>
+                    <ID>nameOfMethodToTest</ID>
+                    <ToolTip>Name of the method to test</ToolTip>
+                    <Default>MethodNameGoesHere</Default>
+                </Literal>
+                <Literal>
+                    <ID>testMethodName</ID>
+                    <ToolTip>Name of the new test method</ToolTip>
+                    <Default>SomeTestMethod</Default>
+                </Literal>
+            </Declarations>
+            <Code Language="csharp">
+<![CDATA[public static class $nameOfClassToTest$Tests
+{
+    [TestClass]
+    public class $nameOfMethodToTest$Tests : AutoMockingBase
+    {
+        [TestMethod]
+        public void $testMethodName$()
+        {
+            // Arrange
+            // Act
+            // Assert
+            throw new NotImplementedException();
+        }
+    }
+}
+$end$]]>
+            </Code>
+        </Snippet>
+    </CodeSnippet>
+</CodeSnippets>

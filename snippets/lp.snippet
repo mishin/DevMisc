@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CodeSnippets  xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+    <CodeSnippet Format="1.0.0">
+        <Header>
+            <Title>property with getter for lazy evaluation</Title>
+            <Shortcut>lp</Shortcut>
+            <Description>Code snippet for creating a getter-only property to lazily execute some code</Description>
+            <Author>James Manning</Author>
+            <SnippetTypes>
+                <SnippetType>Expansion</SnippetType>
+            </SnippetTypes>
+        </Header>
+        <Snippet>
+            <Declarations>
+                <Literal>
+                    <ID>type</ID>
+                    <ToolTip>Property type</ToolTip>
+                    <Default>string</Default>
+                </Literal>
+                <Literal>
+                    <ID>property</ID>
+                    <ToolTip>Property name</ToolTip>
+                    <Default>MyProperty</Default>
+                </Literal>
+                <Literal>
+                    <ID>createCode</ID>
+                    <ToolTip>Creation code</ToolTip>
+                    <Default>SomeCodeHere()</Default>
+                </Literal>
+			</Declarations>
+            <Code Language="csharp">
+        <![CDATA[
+		private $type$ _$property$;
+		public $type$ $property$
+        {
+            get { return _$property$ ?? (_$property$ = $createCode$); }
+        }
+		$end$]]>
+            </Code>
+        </Snippet>
+    </CodeSnippet>
+</CodeSnippets>

@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CodeSnippets  xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+    <CodeSnippet Format="1.0.0">
+        <Header>
+            <Title>Define a Property using 3 Birds standards</Title>
+            <Shortcut>propb</Shortcut>
+            <Description>Code snippet for a property using 3 Birds standards</Description>
+            <Author>Mike Underhill</Author>
+            <SnippetTypes>
+                <SnippetType>Expansion</SnippetType>
+            </SnippetTypes>
+        </Header>
+        <Snippet>
+            <Declarations>
+                <Literal>
+                    <ID>type</ID>
+                    <ToolTip>Property Type</ToolTip>
+                    <Default>int</Default>
+                </Literal>
+                <Literal>
+                    <ID>property</ID>
+                    <ToolTip>Property Name</ToolTip>
+                    <Default>MyProperty</Default>
+                </Literal>
+                <Literal>
+                    <ID>memberName</ID>
+                    <ToolTip>The backing storage of this Property.</ToolTip>
+                    <Default>memberName</Default>
+                </Literal>
+                <Literal>
+                    <ID>defaultValue</ID>
+                    <ToolTip>The default value for this property.</ToolTip>
+                    <Default>0</Default>
+                </Literal>
+            </Declarations>
+            <Code Language="csharp">
+                <![CDATA[private $type$ _$memberName$ = $defaultValue$;
+
+	public $type$ $property$
+	{
+		get { return _$memberName$; }
+		set
+		{
+			if (value != _$memberName$)
+			{
+				_$memberName$ = value;
+				
+				NotifyOfPropertyChange(() => $property$);
+			}
+		}
+	}$end$]]>
+            </Code>
+        </Snippet>
+    </CodeSnippet>
+</CodeSnippets>
