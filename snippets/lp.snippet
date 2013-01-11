@@ -22,18 +22,18 @@
                     <ToolTip>Property name</ToolTip>
                     <Default>MyProperty</Default>
                 </Literal>
-                <Literal>
-                    <ID>createCode</ID>
-                    <ToolTip>Creation code</ToolTip>
-                    <Default>SomeCodeHere()</Default>
-                </Literal>
 			</Declarations>
             <Code Language="csharp">
         <![CDATA[
 		private $type$ _$property$;
 		public $type$ $property$
         {
-            get { return _$property$ ?? (_$property$ = $createCode$); }
+            get { return _$property$ ?? (_$property$ = Get$property$()); }
+        }
+        
+        private $type$ Get$property$()
+        {
+            throw new NotImplementedException();
         }
 		$end$]]>
             </Code>
