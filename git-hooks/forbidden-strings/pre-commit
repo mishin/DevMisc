@@ -1,0 +1,7 @@
+#!/bin/sh
+echo 
+exec powershell.exe -NoProfile -ExecutionPolicy Unrestricted -File '.\.git\hooks\pre-commit-hook.ps1'
+exit
+
+# copied from http://stackoverflow.com/questions/9338119/powershell-git-hook-exit-code
+# added -NoProfile to prevent inclusion of additional paths from user profile which caused used of another git.exe
