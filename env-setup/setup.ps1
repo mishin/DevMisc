@@ -1,14 +1,44 @@
+######
+## NOTE: the contents of this file should be pasted into a powershell console or sourced
+# 
+# (new-object Net.WebClient).DownloadString("https://raw.github.com/jamesmanning/DevMisc/master/env-setup/profile.ps1") | iex
+######
+
 # first set execution policy so we can run scripts
 Set-ExecutionPolicy Unrestricted -Force
 
 # install psget
 (new-object Net.WebClient).DownloadString("http://psget.net/GetPsGet.ps1") | iex
 
-
-
-
 # install chocolatey
 iex ((new-object net.webclient).DownloadString("http://bit.ly/psChocInstall"))
+
+Install-Module Find-String
+Install-Module ImageSorter
+Install-Module PExtend
+Install-Module PoshCode
+Install-Module posh-git
+Install-Module posh-npm
+Install-Module pscx
+Install-Module PsJson
+Install-Module PsUrl
+Install-Module pswatch
+
+# a few variables to make things easier later on
+$powershell_directory = split-path $profile
+$documents_directory = split-path $powershell_directory
+$bin_directory = join-path $documents_directory 'bin'
+
+# now copy our own PowerShell files
+(new-object Net.WebClient).DownloadFile(
+	"https://raw.github.com/jamesmanning/DevMisc/master/env-setup/profile.ps1",
+	"$powershell_directory\profile.ps1")
+(new-object Net.WebClient).DownloadFile(
+	"https://raw.github.com/jamesmanning/DevMisc/master/env-setup/James.ps1",
+	"$powershell_directory\Modules\pscx\Modules\Prompt\James.ps1")
+
+# source the profile so the current shell is better off as well
+. "$powershell_directory\profile.ps1"
 
 # get PowerShell 3.0 before installing more apps
 cinst PowerShell
@@ -194,12 +224,3 @@ cinst PoshRunner
 #cinst rabbitmq
 #cinst redis
 #cinst MongoVUE
-
-function log
-{
-    write-host $args
-}
-
-$powershell_directory = split-path $profile
-$documents_directory = split-path $powershell_directory
-$bin_directory = join-path $documents_directory 'bin'
