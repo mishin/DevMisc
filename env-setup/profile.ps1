@@ -196,13 +196,13 @@ function poff
 
 # import the GitHub shell settings from the GitHub for Windows install
 $githubShellPath = "$env:LOCALAPPDATA\GitHub\shell.ps1"
-if (test-path $githubShellPath)
+if (test-path -PathType Leaf $githubShellPath)
 {
     . $githubShellPath
 }
 # this is the profile that GitHub passes for its own shell, so source that here to get the same effect
 $githubProfilePath = "$env:github_posh_git\profile.example.ps1"
-if (test-path $githubProfilePath)
+if (test-path -PathType Leaf $githubProfilePath)
 {
     . $githubProfilePath
 }
@@ -214,9 +214,4 @@ if (test-path $githubProfilePath)
 
 # keep this last so it overrides anything from previous loaded modules
 Import-Module Pscx -arg ~\Documents\WindowsPowerShell\Modules\Pscx.UserPreferences.ps1
-
-
-
 Import-Module PsGet
-
-$env:path += ";$home\Documents\bin"
