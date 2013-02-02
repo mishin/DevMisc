@@ -35,7 +35,7 @@ $bin_directory = join-path $documents_directory 'bin'
 	"$powershell_directory\profile.ps1")
 (new-object Net.WebClient).DownloadFile(
 	"https://raw.github.com/jamesmanning/DevMisc/master/env-setup/James.ps1",
-	"$powershell_directory\Modules\pscx\Modules\Prompt\James.ps1")
+	"$powershell_directory\Modules\pscx\Modules\Prompt\Themes\James.ps1")
 
 # source the profile so the current shell is better off as well
 . "$powershell_directory\profile.ps1"
