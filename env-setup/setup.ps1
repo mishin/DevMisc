@@ -4,6 +4,13 @@
 # (new-object Net.WebClient).DownloadString("https://raw.github.com/jamesmanning/DevMisc/master/env-setup/profile.ps1") | iex
 ######
 
+# powershell location for WinXP
+# http://www.microsoft.com/en-us/download/details.aspx?id=16818
+# powershell prereq 2.0 SP1 for WinXP
+# http://go.microsoft.com/fwlink/?linkid=153680
+# .Net 4.0 (pre-req for chocolatey) Web Installer
+# http://www.microsoft.com/en-us/download/details.aspx?id=17851
+
 # first set execution policy so we can run scripts
 Set-ExecutionPolicy Unrestricted -Force
 
@@ -12,6 +19,45 @@ Set-ExecutionPolicy Unrestricted -Force
 
 # install chocolatey
 iex ((new-object net.webclient).DownloadString("http://bit.ly/psChocInstall"))
+
+# git stuff
+cinst githubforwindows
+cinst git
+cinst gitextensions
+cinst TortoiseGit
+cinst poshgit
+#cinst git-flow-dependencies - see https://github.com/nvie/gitflow
+#cinst git.alias.standup
+
+$localDevMiscLocation = "$home\Documents\GitHub\DevMisc"
+git clone https://github.com/jamesmanning/DevMisc.git $localDevMiscLocation
+
+cinst kdiff3
+git config diff.tool kdiff3
+git config merge.tool kdiff3
+
+cinst linqpad4
+$linqpadScriptDirectory = "$localDevMiscLocation\LINQPad"
+$linqpadAppDataDirectory = "$env:APPDATA\LINQPad"
+mkdir $linqpadAppDataDirectory
+
+$linqpadXmlSettings = @"
+<?xml version="1.0" encoding="utf-8"?>
+<UserOptions xmlns="http://schemas.datacontract.org/2004/07/LINQPad">
+  <CustomSnippetsFolder>$linqpadScriptDirectory</CustomSnippetsFolder>
+  <DefaultQueryLanguage>Expression</DefaultQueryLanguage>
+  <MaxQueryRows>1000</MaxQueryRows>
+  <NoNativeKeysQuestion>true</NoNativeKeysQuestion>
+  <PluginsFolder>$linqpadScriptDirectory\lib</PluginsFolder>
+</UserOptions>
+"@
+
+[io.file]::writealltext("$linqpadAppDataDirectory\QueryLocations.txt", $linqpadScriptDirectory)
+[io.file]::writealltext("$linqpadAppDataDirectory\SnippetLocations.txt", $linqpadScriptDirectory)
+[io.file]::writealltext("$linqpadAppDataDirectory\querypath.txt", $linqpadScriptDirectory)
+[io.file]::writealltext("$linqpadAppDataDirectory\PluginLocations.txt", "$linqpadScriptDirectory\lib")
+[io.file]::writealltext("$linqpadAppDataDirectory\RoamingUserOptions.xml", $linqpadXmlSettings)
+
 
 Install-Module Find-String
 Install-Module ImageSorter
@@ -28,6 +74,10 @@ Install-Module pswatch
 $powershell_directory = split-path $profile
 $documents_directory = split-path $powershell_directory
 $bin_directory = join-path $documents_directory 'bin'
+
+#mkdir $powershell_directory
+#mkdir $documents_directory
+#mkdir $bin_directory
 
 # now copy our own PowerShell files
 (new-object Net.WebClient).DownloadFile(
@@ -58,9 +108,7 @@ cinst putty
 cinst curl
 cinst windirstat
 cinst GoogleChrome
-cinst linqpad4
 cinst stexbar
-cinst kdiff3
 cinst FoxitReader
 cinst grepwin
 cinst baretail
@@ -113,15 +161,6 @@ cinst PoshRunner
 #cinst vim
 #cinst markpad
 #cinst marker
-
-# git stuff
-#cinst githubforwindows
-#cinst git
-#cinst gitextensions
-#cinst TortoiseGit
-#cinst poshgit
-#cinst git-flow-dependencies - see https://github.com/nvie/gitflow
-#cinst git.alias.standup
 
 # .NET stuff
 #cinst Fody - see addins list at https://github.com/Fody/Fody

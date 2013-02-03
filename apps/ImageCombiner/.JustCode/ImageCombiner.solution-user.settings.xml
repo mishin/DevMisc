@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<JustCodeSettings Version="0.0" Timestamp="bbf25efd-3509-4ee4-b5d6-23ac35674bc0">
+  <IgnoredErrorsAndWarningsSettings xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
+    <IgnoredErrorsAndWarnings>
+      <FilePath>
+        <Path>C:\Users\james\Documents\GitHub\DevMisc\apps\ImageCombiner\ImageCombiner\Program.cs</Path>
+        <ProjectFullName>C:\Users\james\Documents\GitHub\DevMisc\apps\ImageCombiner\ImageCombiner\ImageCombiner.csproj</ProjectFullName>
+        <IgnoredElement>
+          <Column>34</Column>
+          <Text>Unknown type &lt;/C&gt;Bitmap&lt;//C&gt;</Text>
+          <Line>36</Line>
+        </IgnoredElement>
+        <IgnoredElement>
+          <Column>24</Column>
+          <Text>Unknown method &lt;/C&gt;Select(?)&lt;//C&gt; of &lt;/C&gt;string[]&lt;//C&gt;</Text>
+          <Line>36</Line>
+        </IgnoredElement>
+      </FilePath>
+    </IgnoredErrorsAndWarnings>
+  </IgnoredErrorsAndWarningsSettings>
+</JustCodeSettings>

@@ -23,13 +23,14 @@ $env:path += ";${env:ProgramFiles(x86)}\Microsoft SDKs\Windows\v8.0A\Bin\NETFX 4
 
 $env:path += ";$env:windir\Microsoft.NET\Framework64\v4.0.30319"
 
-
 set-alias msbuild32 C:\Windows\Microsoft.NET\Framework\v4.0.30319\msbuild.exe
 set-alias msbuild64 C:\Windows\Microsoft.NET\Framework64\v4.0.30319\msbuild.exe
 
-$env:path += ";$home\Documents\bin"
+$docs = [environment]::GetFolderPath('mydocuments')
+$env:path += ";$docs\bin"
+
 # include subdirs of docs bin
-dir -r $home\Documents\bin |
+dir -r $docs\bin |
     ?{ $_.PsIsContainer } |
     %{ $_.FullName } |
     %{ $env:path += ";$_" }
@@ -45,14 +46,26 @@ function first-not-empty([string[]] $strings)
     $strings |
         ?{ [string]::IsNullOrEmpty($_) -eq $false } |
         select -first 1
-}    
+}
+
+function Get-ProgramFilesPath([string] $relativePath)
+{
+	$checkPath = "${env:ProgramFiles(x86)}\$relativePath"
+	if (test-path -type leaf $checkPath) { return $checkPath }
+
+	$checkPath = "$env:ProgramFiles\$relativePath"
+	if (test-path -type leaf $checkPath) { return $checkPath }
+	
+	throw "could not find a ProgramFiles path for $relativePath"
+}
 
 function edit-files([string[]] $paths)
 {
     foreach ($path in $paths)
     {
         write-debug "Invoking editor on file $path"
-        & "${env:ProgramFiles(x86)}\Notepad++\notepad++.exe" $path
+		$editor = Get-ProgramFilesPath("Notepad++\notepad++.exe")
+        & $editor $path
     }
 }
 
@@ -213,5 +226,5 @@ if (test-path -PathType Leaf $githubProfilePath)
 #Start-SshAgent -Quiet
 
 # keep this last so it overrides anything from previous loaded modules
-Import-Module Pscx -arg ~\Documents\WindowsPowerShell\Modules\Pscx.UserPreferences.ps1
+Import-Module Pscx -arg $docs\WindowsPowerShell\Modules\Pscx.UserPreferences.ps1
 Import-Module PsGet

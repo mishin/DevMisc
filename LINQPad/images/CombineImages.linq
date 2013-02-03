@@ -24,11 +24,12 @@
   <Reference>&lt;RuntimeDirectory&gt;\wpf\UIAutomationProvider.dll</Reference>
   <Reference>&lt;RuntimeDirectory&gt;\wpf\UIAutomationTypes.dll</Reference>
   <Reference>&lt;RuntimeDirectory&gt;\wpf\WindowsBase.dll</Reference>
+  <NuGetReference Prerelease="true">morelinq</NuGetReference>
   <Namespace>MoreLinq</Namespace>
+  <Namespace>System.Drawing</Namespace>
   <Namespace>System.Net</Namespace>
   <Namespace>System.Web</Namespace>
   <Namespace>System.Windows.Forms</Namespace>
-  <Namespace>System.Drawing</Namespace>
 </Query>
 
 var monitorCount = 3;
