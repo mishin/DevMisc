@@ -20,12 +20,14 @@ Set-ExecutionPolicy Unrestricted -Force
 # install chocolatey
 iex ((new-object net.webclient).DownloadString("http://bit.ly/psChocInstall"))
 
+# don't install these packages, use the ones that come with GitHub for Windows
+#cinst git
+#cinst poshgit
+
 # git stuff
 cinst githubforwindows
-cinst git
 cinst gitextensions
 cinst TortoiseGit
-cinst poshgit
 #cinst git-flow-dependencies - see https://github.com/nvie/gitflow
 #cinst git.alias.standup
 
