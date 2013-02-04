@@ -31,7 +31,10 @@ cinst TortoiseGit
 #cinst git-flow-dependencies - see https://github.com/nvie/gitflow
 #cinst git.alias.standup
 
-$localDevMiscLocation = "$home\Documents\GitHub\DevMisc"
+$docs = [environment]::GetFolderPath('mydocuments')
+$env:path += ";$docs\bin"
+
+$localDevMiscLocation = "$docs\GitHub\DevMisc"
 git clone https://github.com/jamesmanning/DevMisc.git $localDevMiscLocation
 
 cinst kdiff3
@@ -51,6 +54,9 @@ $linqpadXmlSettings = @"
   <MaxQueryRows>1000</MaxQueryRows>
   <NoNativeKeysQuestion>true</NoNativeKeysQuestion>
   <PluginsFolder>$linqpadScriptDirectory\lib</PluginsFolder>
+  <ConvertTabsToSpaces>true</ConvertTabsToSpaces>
+  <ResultsInGrids>true</ResultsInGrids>
+  <TabSize>4</TabSize>
 </UserOptions>
 "@
 
@@ -77,17 +83,18 @@ $powershell_directory = split-path $profile
 $documents_directory = split-path $powershell_directory
 $bin_directory = join-path $documents_directory 'bin'
 
-#mkdir $powershell_directory
-#mkdir $documents_directory
-#mkdir $bin_directory
+mkdir $powershell_directory
+mkdir $bin_directory
 
 # now copy our own PowerShell files
 (new-object Net.WebClient).DownloadFile(
 	"https://raw.github.com/jamesmanning/DevMisc/master/env-setup/profile.ps1",
 	"$powershell_directory\profile.ps1")
+
 (new-object Net.WebClient).DownloadFile(
 	"https://raw.github.com/jamesmanning/DevMisc/master/env-setup/James.ps1",
 	"$powershell_directory\Modules\pscx\Modules\Prompt\Themes\James.ps1")
+    
 (new-object Net.WebClient).DownloadFile(
 	"https://raw.github.com/jamesmanning/DevMisc/master/env-setup/Pscx.UserPreferences.ps1",
 	"$powershell_directory\Modules\Pscx.UserPreferences.ps1")
