@@ -26,8 +26,8 @@ iex ((new-object net.webclient).DownloadString("http://bit.ly/psChocInstall"))
 
 # git stuff
 cinst githubforwindows
-cinst gitextensions
-cinst TortoiseGit
+#cinst TortoiseGit
+#cinst gitextensions
 #cinst git-flow-dependencies - see https://github.com/nvie/gitflow
 #cinst git.alias.standup
 
