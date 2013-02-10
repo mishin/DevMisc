@@ -38,8 +38,8 @@ $localDevMiscLocation = "$docs\GitHub\DevMisc"
 git clone https://github.com/jamesmanning/DevMisc.git $localDevMiscLocation
 
 cinst kdiff3
-git config diff.tool kdiff3
-git config merge.tool kdiff3
+git config --global diff.tool kdiff3
+git config --global merge.tool kdiff3
 
 cinst linqpad4
 $linqpadScriptDirectory = "$localDevMiscLocation\LINQPad"
