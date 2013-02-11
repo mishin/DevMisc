@@ -86,18 +86,8 @@ $bin_directory = join-path $documents_directory 'bin'
 mkdir $powershell_directory
 mkdir $bin_directory
 
-# now copy our own PowerShell files
-(new-object Net.WebClient).DownloadFile(
-	"https://raw.github.com/jamesmanning/DevMisc/master/env-setup/profile.ps1",
-	"$powershell_directory\profile.ps1")
-
-(new-object Net.WebClient).DownloadFile(
-	"https://raw.github.com/jamesmanning/DevMisc/master/env-setup/James.ps1",
-	"$powershell_directory\Modules\pscx\Modules\Prompt\Themes\James.ps1")
-    
-(new-object Net.WebClient).DownloadFile(
-	"https://raw.github.com/jamesmanning/DevMisc/master/env-setup/Pscx.UserPreferences.ps1",
-	"$powershell_directory\Modules\Pscx.UserPreferences.ps1")
+# copy files to docs from our template, ignoring any that already exist
+robocopy "$localDevMiscLocation\env-setup\template-docs" $docs /xc /xn /xo /xx /ndl /s # /l
 
 # source the profile so the current shell is better off as well
 . "$powershell_directory\profile.ps1"
@@ -106,6 +96,7 @@ mkdir $bin_directory
 cinst PowerShell
 
 # install applications - see http://chocolatey.org/packages
+cinst RoyalTS
 cinst DotNet4.5
 cinst notepadplusplus
 cinst 7zip
