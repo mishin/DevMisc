@@ -91,6 +91,7 @@ mkdir $bin_directory
 
 # copy files to docs from our template, ignoring any that already exist
 robocopy "$localDevMiscLocation\env-setup\template-docs" $docs /xc /xn /xo /xx /ndl /s # /l
+robocopy "$localDevMiscLocation\env-setup\template-appdata" $env:AppData /xc /xn /xo /xx /ndl /s /l
 
 # source the profile so the current shell is better off as well
 . "$powershell_directory\profile.ps1"
