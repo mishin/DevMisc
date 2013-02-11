@@ -41,6 +41,9 @@ cinst kdiff3
 git config --global diff.tool kdiff3
 git config --global merge.tool kdiff3
 
+# git aliases
+git config --global alias.pa "!git add -A && git commit -v && git pull && git push"
+
 cinst linqpad4
 $linqpadScriptDirectory = "$localDevMiscLocation\LINQPad"
 $linqpadAppDataDirectory = "$env:APPDATA\LINQPad"
