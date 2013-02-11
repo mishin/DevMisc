@@ -96,7 +96,6 @@ robocopy "$localDevMiscLocation\env-setup\template-docs" $docs /xc /xn /xo /xx /
 cinst PowerShell
 
 # install applications - see http://chocolatey.org/packages
-cinst RoyalTS
 cinst DotNet4.5
 cinst notepadplusplus
 cinst 7zip
