@@ -21,15 +21,15 @@ Set-ExecutionPolicy Unrestricted -Force
 iex ((new-object net.webclient).DownloadString("http://bit.ly/psChocInstall"))
 
 # don't install these packages, use the ones that come with GitHub for Windows
-#cinst git
-#cinst poshgit
+#cinstm git
+#cinstm poshgit
 
 # git stuff
-cinst githubforwindows
-#cinst TortoiseGit
-#cinst gitextensions
-#cinst git-flow-dependencies - see https://github.com/nvie/gitflow
-#cinst git.alias.standup
+cinstm githubforwindows
+#cinstm TortoiseGit
+#cinstm gitextensions
+#cinstm git-flow-dependencies - see https://github.com/nvie/gitflow
+#cinstm git.alias.standup
 
 $docs = [environment]::GetFolderPath('mydocuments')
 $env:path += ";$docs\bin"
@@ -37,14 +37,14 @@ $env:path += ";$docs\bin"
 $localDevMiscLocation = "$docs\GitHub\DevMisc"
 git clone https://github.com/jamesmanning/DevMisc.git $localDevMiscLocation
 
-cinst kdiff3
+cinstm kdiff3
 git config --global diff.tool kdiff3
 git config --global merge.tool kdiff3
 
 # git aliases
 git config --global alias.pa "!git add -A && git commit -v && git pull && git push"
 
-cinst linqpad4
+cinstm linqpad4
 $linqpadScriptDirectory = "$localDevMiscLocation\LINQPad"
 $linqpadAppDataDirectory = "$env:APPDATA\LINQPad"
 mkdir $linqpadAppDataDirectory
@@ -96,175 +96,175 @@ robocopy "$localDevMiscLocation\env-setup\template-docs" $docs /xc /xn /xo /xx /
 . "$powershell_directory\profile.ps1"
 
 # get PowerShell 3.0 before installing more apps
-cinst PowerShell
+cinstm PowerShell
 
 # install applications - see http://chocolatey.org/packages
-cinst DotNet4.5
-cinst notepadplusplus
-cinst 7zip
-cinst 7zip.commandline
-cinst sysinternals
-cinst fiddler
-cinst ChocolateyGUI
-cinst putty
-cinst curl
-cinst windirstat
-cinst GoogleChrome
-cinst stexbar
-cinst FoxitReader
-cinst grepwin
-cinst baretail
-cinst lastpass
-cinst RoyalTS
-cinst PoshRunner
+cinstm DotNet4.5
+cinstm notepadplusplus
+cinstm 7zip
+cinstm 7zip.commandline
+cinstm sysinternals
+cinstm fiddler
+cinstm ChocolateyGUI
+cinstm putty
+cinstm curl
+cinstm windirstat
+cinstm GoogleChrome
+cinstm stexbar
+cinstm FoxitReader
+cinstm grepwin
+cinstm baretail
+cinstm lastpass
+cinstm RoyalTS
+cinstm PoshRunner
 
 # change chocolatey_bin_root to '\tools'
-#cinst toolsroot
+#cinstm toolsroot
 
 # video viewers
-#cinst multiavchd
+#cinstm multiavchd
 
 # user apps
-#cinst adobereader
-#cinst filezilla
-#cinst filezilla.commandline
-#cinst GoogleTalk
-#cinst HipChat
-#cinst launchy
-#cinst ultramon
-#cinst Slickrun
-#cinst WindowsLiveWriter
-#cinst tweetdeck
-#cinst iTunes
-#cinst imgburn
-#cinst Handbrake.WinGUI
-#cinst winrar
-#cinst evernote
-#cinst skype
-#cinst virtualbox
-#cinst Wget
-#cinst steam
-#cinst Everything
-#cinst jing
-#cinst clipx
-#cinst Monosnap
-#cinst mobalivecd - run linux livecd inside of windows
+#cinstm adobereader
+#cinstm filezilla
+#cinstm filezilla.commandline
+#cinstm GoogleTalk
+#cinstm HipChat
+#cinstm launchy
+#cinstm ultramon
+#cinstm Slickrun
+#cinstm WindowsLiveWriter
+#cinstm tweetdeck
+#cinstm iTunes
+#cinstm imgburn
+#cinstm Handbrake.WinGUI
+#cinstm winrar
+#cinstm evernote
+#cinstm skype
+#cinstm virtualbox
+#cinstm Wget
+#cinstm steam
+#cinstm Everything
+#cinstm jing
+#cinstm clipx
+#cinstm Monosnap
+#cinstm mobalivecd - run linux livecd inside of windows
 
 # powershell module?!?
-#cinst pscx
+#cinstm pscx
 
 # cloud file storage
-#cinst dropbox
-#cinst SkyDrive
-#cinst googledrive
+#cinstm dropbox
+#cinstm SkyDrive
+#cinstm googledrive
 
 # editors
-#cinst sublimetext2
-#cinst vim
-#cinst markpad
-#cinst marker
+#cinstm sublimetext2
+#cinstm vim
+#cinstm markpad
+#cinstm marker
 
 # .NET stuff
-#cinst Fody - see addins list at https://github.com/Fody/Fody
-#cinst warmup - see http://devlicio.us/blogs/rob_reynolds/archive/2010/02/01/warmup-getting-started.aspx
-#cinst resharper
-#cinst dotPeek
-#cinst ilspy
-#cinst reflector
-#cinst monodevelop
+#cinstm Fody - see addins list at https://github.com/Fody/Fody
+#cinstm warmup - see http://devlicio.us/blogs/rob_reynolds/archive/2010/02/01/warmup-getting-started.aspx
+#cinstm resharper
+#cinstm dotPeek
+#cinstm ilspy
+#cinstm reflector
+#cinstm monodevelop
 
 # image editing
-#cinst InkScape
-#cinst paint.net
-#cinst gimp
-#cinst greenshot
-#cinst IcoFx
+#cinstm InkScape
+#cinstm paint.net
+#cinstm gimp
+#cinstm greenshot
+#cinstm IcoFx
 
 # security tools
-#cinst MicrosoftSecurityEssentials
-#cinst Secunia.PSI
+#cinstm MicrosoftSecurityEssentials
+#cinstm Secunia.PSI
 
 # admin tools
-#cinst speccy - hardware info for machine
-#cinst wireshark
-#cinst autohotkey_l
-#cinst nmap
-#cinst teamviewer
-#cinst lockhunter
-#cinst ccleaner
-#cinst usbview
-#cinst RegScanner
-#cinst RegShot
-#cinst Revo.Uninstaller
-#cinst Wolfpack
-#cinst hmailserver
-#cinst adexplorer
-#cinst procdump - capture dumps during CPU spikes
-#cinst perfview
-#cinst ultradefrag
+#cinstm speccy - hardware info for machine
+#cinstm wireshark
+#cinstm autohotkey_l
+#cinstm nmap
+#cinstm teamviewer
+#cinstm lockhunter
+#cinstm ccleaner
+#cinstm usbview
+#cinstm RegScanner
+#cinstm RegShot
+#cinstm Revo.Uninstaller
+#cinstm Wolfpack
+#cinstm hmailserver
+#cinstm adexplorer
+#cinstm procdump - capture dumps during CPU spikes
+#cinstm perfview
+#cinstm ultradefrag
 
 # dev tools
-#cinst windbg
-#cinst lessmsi
-#cinst expresso
-#cinst regexpixie
-#cinst logparser
-#cinst logparser.lizardgui
-#cinst smtp4dev
-#cinst resourcesextract
-#cinst ChirpyVSI
-#cinst Graphviz
-#cinst pdftk
-#cinst puppet
-#cinst SQLSentryPlanExplorer
-#cinst PlanExplorerSsmsAddin
-#cinst OctopusDeploy
-#cinst prototyper
-#cinst SelfSSL7
-#cinst pal - Performance Analysis of Logs (PAL) Tool
-#cinst ireport - free report designer for JasperReports
-#cinst appharborcli.install
-#cinst dotTrace
-#cinst sqlnexus - figure out sql perf issues
-#cinst sqldiagmanager
-#cinst webpicommandline
+#cinstm windbg
+#cinstm lessmsi
+#cinstm expresso
+#cinstm regexpixie
+#cinstm logparser
+#cinstm logparser.lizardgui
+#cinstm smtp4dev
+#cinstm resourcesextract
+#cinstm ChirpyVSI
+#cinstm Graphviz
+#cinstm pdftk
+#cinstm puppet
+#cinstm SQLSentryPlanExplorer
+#cinstm PlanExplorerSsmsAddin
+#cinstm OctopusDeploy
+#cinstm prototyper
+#cinstm SelfSSL7
+#cinstm pal - Performance Analysis of Logs (PAL) Tool
+#cinstm ireport - free report designer for JasperReports
+#cinstm appharborcli.install
+#cinstm dotTrace
+#cinstm sqlnexus - figure out sql perf issues
+#cinstm sqldiagmanager
+#cinstm webpicommandline
 # WebPICMD.exe /Install /Products:WebMatrix
 # WebPICMD.exe /List /ListOption:Available
 
 # dev stacks / environments
-#cinst typescript.vs
-#cinst typescript
-#cinst CoffeeScript
-#cinst javaruntime
-#cinst javaruntime.x64
-#cinst java.jdk
-#cinst groovy
-#cinst scala
-#cinst erlang
-#cinst ruby
-#cinst clojure
-#cinst clojure.clr
-#cinst python
-#cinst nodejs
-#cinst nodejs.commandline
-#cinst PhantomJS
-#cinst Yeoman
-#cinst Compass
-#cinst mono
-#cinst VisualStudioExpress2012TFS
-#cinst VisualStudio2012WDX
-#cinst VisualStudio2012Ultimate
-#cinst VS2012SDK
-#cinst sharpdevelop
-#cinst stylecop
+#cinstm typescript.vs
+#cinstm typescript
+#cinstm CoffeeScript
+#cinstm javaruntime
+#cinstm javaruntime.x64
+#cinstm java.jdk
+#cinstm groovy
+#cinstm scala
+#cinstm erlang
+#cinstm ruby
+#cinstm clojure
+#cinstm clojure.clr
+#cinstm python
+#cinstm nodejs
+#cinstm nodejs.commandline
+#cinstm PhantomJS
+#cinstm Yeoman
+#cinstm Compass
+#cinstm mono
+#cinstm VisualStudioExpress2012TFS
+#cinstm VisualStudio2012WDX
+#cinstm VisualStudio2012Ultimate
+#cinstm VS2012SDK
+#cinstm sharpdevelop
+#cinstm stylecop
 
 # data stores
-#cinst postgresql
-#cinst Couchbase
-#cinst couchdb
-#cinst memcached
-#cinst SqlServerExpress
-#cinst SqlServer2012Express
-#cinst rabbitmq
-#cinst redis
-#cinst MongoVUE
+#cinstm postgresql
+#cinstm Couchbase
+#cinstm couchdb
+#cinstm memcached
+#cinstm SqlServerExpress
+#cinstm SqlServer2012Express
+#cinstm rabbitmq
+#cinstm redis
+#cinstm MongoVUE

@@ -1,0 +1,9 @@
+<install>
+    <copy from="C:\Users\james\AppData\Roaming\Notepad++\plugins\Config\plugin_install_temp\plugin1\NPPJSONViewer.dll" to="C:\Program Files (x86)\Notepad++\plugins\" replace="true" />
+    <copy from="C:\Users\james\AppData\Roaming\Notepad++\plugins\Config\plugin_install_temp\plugin1\README" to="C:\Program Files (x86)\Notepad++\plugins\doc\NPPJSONViewer\" replace="true" />
+    <copy from="C:\Users\james\AppData\Roaming\Notepad++\plugins\Config\plugin_install_temp\plugin3\NPPJSONViewer.dll" to="C:\Program Files (x86)\Notepad++\plugins\" replace="true" />
+    <copy from="C:\Users\james\AppData\Roaming\Notepad++\plugins\Config\plugin_install_temp\plugin3\README" to="C:\Program Files (x86)\Notepad++\plugins\doc\NPPJSONViewer\" replace="true" />
+    <copy from="C:\Users\james\AppData\Roaming\Notepad++\plugins\Config\plugin_install_temp\plugin5\unicode\NppEditorConfig.dll" to="C:\Program Files (x86)\Notepad++\plugins\" replace="true" />
+    <copy from="C:\Users\james\AppData\Roaming\Notepad++\plugins\Config\plugin_install_temp\plugin6\NPPJSONViewer.dll" to="C:\Program Files (x86)\Notepad++\plugins\" replace="true" />
+    <copy from="C:\Users\james\AppData\Roaming\Notepad++\plugins\Config\plugin_install_temp\plugin6\README" to="C:\Program Files (x86)\Notepad++\plugins\doc\NPPJSONViewer\" replace="true" />
+</install>
