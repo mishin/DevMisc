@@ -31,7 +31,8 @@ else
     Write-Debug "Search patterns from git config $gitConfigName to use for commit changes:$OFS$stringsToSearchFor"
 }
 
-$currentGitStatusLines = @(git status --porcelain)
+$gitStatusZ = git status --porcelain -z
+$currentGitStatusLines = $gitStatusZ.Split([char]0)
 
 Write-Debug "git status --porcelain returned status of:$OFS$currentGitStatusLines"
 
@@ -39,13 +40,12 @@ $gitStatusLinesToCheck = @($currentGitStatusLines |
     # filter the files based on their status in the index (the first character of the status line). See the notes
     # for the --porcelain format at http://www.kernel.org/pub/software/scm/git/docs/git-status.html - we only want to
     # include files that are modified, added, renamed, or copied in the index - filtering out deleted, untracked, and ignored.
-    ?{ $_ -match '^[MARC]' } 
+    ?{ $_ -match '^[MARC][ MDAU] ' } 
 )
 Write-Debug "git status lines to be checked:$OFS$gitStatusLinesToCheck"
 
-$relativeFilePaths = @($gitStatusLinesToCheck |
-    %{ ($_ -split ' ')[-1] }
-)
+# remove the 3 status characters at the front of the line
+$relativeFilePaths = @($gitStatusLinesToCheck | %{ $_.Substring(3) })
 Write-Debug "relative file paths to be checked:$OFS$relativeFilePaths"
 
 $relativeFilePathsThatExist = @($relativeFilePaths |
