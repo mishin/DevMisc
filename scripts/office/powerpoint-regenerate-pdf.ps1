@@ -1,6 +1,5 @@
 ﻿param (
-    #[string[]] $pptxPaths = $(throw 'must specify paths to powerpoint files')
-    [string[]] $pptxPaths = "Z:\Marketing\Clients\San Francisco Toyota\February 2013\1 - San Jose Metro\Toyota Sunnyvale\February 2013-Toyota Sunnyvale-Assessment.pptx"
+    [string[]] $pptxPaths = $(throw 'must specify paths to powerpoint files')
 )
 
 Set-StrictMode -Version Latest
