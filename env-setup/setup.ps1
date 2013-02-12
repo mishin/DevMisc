@@ -214,6 +214,7 @@ cinst PoshRunner
 #cinst windbg
 #cinst lessmsi
 #cinst expresso
+#cinst Codaxy.WkHtmlToPdf
 #cinst regexpixie
 #cinst logparser
 #cinst logparser.lizardgui
