@@ -69,23 +69,6 @@ function edit-files([string[]] $paths)
     }
 }
 
-function tfedit-files([string[]] $paths)
-{
-    write-debug "Invoking tf edit on paths $paths"
-    tf edit $paths
-#    foreach ($path in $paths)
-#    {
-#        write-debug "Invoking tf edit on file $path"
-#        tf edit $path
-#    }
-}
-
-$env:TFPT_ONLINE_EXCLUDE = '_ReSharper.*,LiveIntellisense,*.user,*.suo,TestResults,bin,obj,Debug,Release,*.ncrunchsolution,*.ncrunchproject,*.dll,*.pdb,*.crunchsolution.cache'
-function tfsclean-dir([string] $path = '.')
-{
-    tfpt treeclean $path /r /i '/exclude:_ReSharper.*,LiveIntellisense,*.user,*.suo;*.ncrunchsolution;*.ncrunchproject'
-}
-
 function expand-wildcards([string] $path)
 {
     if (test-path $path)
@@ -108,19 +91,6 @@ function n
     edit-files $inputPaths
 }
 
-function ntf
-{
-    $files = @($args) + @($input)
-    $inputPaths = $files | 
-        %{ first-not-empty $_.path, $_.fullname, $_ } |
-        %{ expand-wildcards $_ } |
-        sort -uniq
-        #?{ test-path -pathtype leaf $_ }
-
-    tfedit-files $inputPaths
-    edit-files $inputPaths
-}
-
 filter p { $_.$args }
 filter f { $_.fullname }
 function oc { $input | out-clipboard -width 9999 }
@@ -134,43 +104,11 @@ filter ssl { $_ | select-string -list $args | p path }
 $binaryExtensions = '.exe', '.dll', '.pdb', '.png', '.mdf', '.docx', '.dat', '.cache', '.original'
 filter sst { $_ | ?{ $binaryExtensions -notcontains $_.Extension } | select-string $args }
 
-$sourceDir = 'C:\github\Main'
+$sourceDir = "$docs\GitHub"
 function s { cd $sourceDir }
 if (($pwd.Path -eq $home) -and (test-path -pathtype container $sourceDir))
 {
     cd $sourceDir
-}
-
-$pocDir = 'C:\github\Spikes'
-function poc { cd $pocDir }
-
-remove-item alias:lp -ea 0
-$linqpadDir = 'C:\github\Main\LINQPad'
-function lp { cd $linqpadDir }
-
-function tfs
-{
-    Add-PSSnapin TfsBPAPowerShellSnapIn -ea 0
-    TFSSnapin.ps1
-}
-
-function db
-{
-    $global:sourceDir = 'c:\github\Main\Database'
-    cd $sourceDir
-}
-
-function main
-{
-    $global:sourceDir = 'c:\github\Main'
-    cd $sourceDir
-}
-
-function linqpad
-{
-    robocopy \\tsclient\c\github\Main\LINQPad c:\github\Main\LINQPad /mir
-    robocopy \\tsclient\c\github\Main\Libraries\servershared c:\github\Main\Libraries\servershared *.dll *.exe *.exe.config /mir /xd *resharper* /xd *testresults* /xd *tests /xd obj
-    robocopy \\tsclient\c\github\Main\Libraries\DMClientLib c:\github\Main\Libraries\DMClientLib *.dll *.exe *.exe.config /mir /xd *resharper* /xd *testresults* /xd *tests /xd obj
 }
 
 function diff-allprojects
@@ -194,19 +132,6 @@ function poff
     $global:GitPromptSettings.EnablePromptStatus = $false
 }
 
-#function github
-#{
-#    . 'C:\github\posh-git\profile.example.ps1'
-#    $global:sourceDir = 'C:\github'
-#    cd $sourceDir
-#}
-
-
-
-# Load posh-git example profile
-#$env:path += ";${env:ProgramFiles(x86)}\Git\cmd"
-#$env:path += ";${env:ProgramFiles(x86)}\Git\bin"
-
 # import the GitHub shell settings from the GitHub for Windows install
 $githubShellPath = "$env:LOCALAPPDATA\GitHub\shell.ps1"
 if (test-path -PathType Leaf $githubShellPath)
@@ -219,11 +144,6 @@ if (test-path -PathType Leaf $githubProfilePath)
 {
     . $githubProfilePath
 }
-
-#Import-Module .\posh-git
-#Import-Module posh-git
-#Enable-GitColors
-#Start-SshAgent -Quiet
 
 # keep this last so it overrides anything from previous loaded modules
 Import-Module Pscx -arg $docs\WindowsPowerShell\Modules\Pscx.UserPreferences.ps1

@@ -205,10 +205,36 @@ cinstm PoshRunner
 #cinstm ultradefrag
 
 # dev tools
+<<<<<<< HEAD
+#cinst windbg
+#cinst lessmsi
+#cinst expresso
+#cinst Codaxy.WkHtmlToPdf
+#cinst regexpixie
+#cinst logparser
+#cinst logparser.lizardgui
+#cinst smtp4dev
+#cinst resourcesextract
+#cinst ChirpyVSI
+#cinst Graphviz
+#cinst pdftk
+#cinst puppet
+#cinst SQLSentryPlanExplorer
+#cinst PlanExplorerSsmsAddin
+#cinst OctopusDeploy
+#cinst prototyper
+#cinst SelfSSL7
+#cinst pal - Performance Analysis of Logs (PAL) Tool
+#cinst ireport - free report designer for JasperReports
+#cinst appharborcli.install
+#cinst dotTrace
+#cinst sqlnexus - figure out sql perf issues
+#cinst sqldiagmanager
+#cinst webpicommandline
+=======
 #cinstm windbg
 #cinstm lessmsi
 #cinstm expresso
-#cinstm Codaxy.WkHtmlToPdf
 #cinstm regexpixie
 #cinstm logparser
 #cinstm logparser.lizardgui
@@ -230,6 +256,7 @@ cinstm PoshRunner
 #cinstm sqlnexus - figure out sql perf issues
 #cinstm sqldiagmanager
 #cinstm webpicommandline
+>>>>>>> e08f7cca62a30c5b0776e8d61a22649bfe863471
 # WebPICMD.exe /Install /Products:WebMatrix
 # WebPICMD.exe /List /ListOption:Available
 
