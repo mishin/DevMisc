@@ -32,6 +32,10 @@ else
 }
 
 $gitStatusZ = git status --porcelain -z
+
+# if status is null, then there are no changes in index or working tree, so nothing to check
+if ($gitStatusZ -eq $null) { return }
+
 $currentGitStatusLines = $gitStatusZ.Split([char]0)
 
 Write-Debug "git status --porcelain returned status of:$OFS$currentGitStatusLines"
