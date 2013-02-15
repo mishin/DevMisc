@@ -81,6 +81,11 @@ function expand-wildcards([string] $path)
     }
 }
 
+function dm { cd 'C:\github\DevMisc' }
+function gco { git checkout $args }
+function gs { git status $args }
+function gd { git diff $args }
+
 function n
 {
     $files = @($args) + @($input)
