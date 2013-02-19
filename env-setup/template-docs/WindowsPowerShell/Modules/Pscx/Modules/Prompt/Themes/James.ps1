@@ -28,18 +28,25 @@ $Theme.PromptForegroundColor = 'Yellow'
 # Prompt ScriptBlock
 # ---------------------------------------------------------------------------
 $Theme.PromptScriptBlock = {
-	param($Id) 
-	
-	if($NestedPromptLevel) 
-	{
-		new-object string ([char]0xB7), $NestedPromptLevel
-	}
-	
-	(Get-Location)
-	' '
-#	"[$Id] $([char]0xBB)"	
-	"$([char]0xBB)"	
-}		
+    param($Id)
+
+    if($NestedPromptLevel)
+    {
+        new-object string ([char]0xB7), $NestedPromptLevel
+    }
+
+    #"[managed thread id is $([threading.thread]::CurrentThread.ManagedThreadId)]"
+
+    if (test-path function:Write-VcsStatus)
+    {
+        #"Left = $([console]::CursorLeft) Top = $([console]::CursorTop)`n"
+        Write-VcsStatus
+        #"Left = $([console]::CursorLeft) Top = $([console]::CursorTop)`n"
+    }
+
+#   "[$Id] $([char]0xBB)"
+    "$((Get-Location).ProviderPath) $([char]0xBB)"
+}
 
 # ---------------------------------------------------------------------------
 # Window Title Update ScriptBlock
@@ -49,11 +56,11 @@ $Theme.UpdateWindowTitleScriptBlock = {
 #	'-'
 #	'Windows PowerShell'
 
-	if($Pscx:IsAdmin) 
-	{ 
-		' (Administrator)' 
+	if($Pscx:IsAdmin)
+	{
+		' (Administrator)'
 	}
-	
+
 	if ($Pscx:IsWow64Process)
 	{
 		' (x86)'
