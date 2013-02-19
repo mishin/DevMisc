@@ -167,7 +167,7 @@ function open-ongithub
 
     $gitStatus = Get-GitStatus
     $repoRoot = split-path $gitStatus.gitdir
-    $pwdRelativePath = $pwd.Path.Substring($repoRoot.Length)
+    $pwdRelativePath = $pwd.ProviderPath.Substring($repoRoot.Length)
     $pwdRelativePath = $pwdRelativePath.Replace('\', '/')
     
     $fullUrl = '{0}/tree/{1}{2}' -f $repoUrl, $gitStatus.Branch, $pwdRelativePath
