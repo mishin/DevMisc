@@ -150,6 +150,31 @@ if (test-path -PathType Leaf $githubProfilePath)
     . $githubProfilePath
 }
 
+function open-ongithub
+{
+    $gitRemoteOutput = git remote -v
+    $gitRemoteOutput = [String]::Join([environment]::newline, $gitRemoteOutput)
+    
+    if ($gitRemoteOutput -match '(https://github.com/[^/]+/[^/]+)\.git ')
+    {
+        write-debug "Matches is $matches"
+        $repoUrl = $matches[1]
+    }
+    else
+    {
+        throw 'Could not find a remote under github.com'
+    }
+
+    $gitStatus = Get-GitStatus
+    $repoRoot = split-path $gitStatus.gitdir
+    $pwdRelativePath = $pwd.Path.Substring($repoRoot.Length)
+    $pwdRelativePath = $pwdRelativePath.Replace('\', '/')
+    
+    $fullUrl = '{0}/tree/{1}{2}' -f $repoUrl, $gitStatus.Branch, $pwdRelativePath
+    write-debug "Opening github repo $fullUrl"
+    [system.diagnostics.process]::Start($fullUrl)
+}
+
 # keep this last so it overrides anything from previous loaded modules
 Import-Module Pscx -arg $docs\WindowsPowerShell\Modules\Pscx.UserPreferences.ps1
 Import-Module PsGet
