@@ -23,6 +23,15 @@
             <Action type="3" message="1702" wParam="0" lParam="768" sParam="" />
             <Action type="3" message="1701" wParam="0" lParam="1609" sParam="" />
         </Macro>
+        <Macro name="AddCommas" Ctrl="yes" Alt="yes" Shift="yes" Key="81">
+            <Action type="0" message="2316" wParam="0" lParam="0" sParam="" />
+            <Action type="3" message="1700" wParam="0" lParam="0" sParam="" />
+            <Action type="3" message="1601" wParam="0" lParam="0" sParam="$" />
+            <Action type="3" message="1625" wParam="0" lParam="2" sParam="" />
+            <Action type="3" message="1602" wParam="0" lParam="0" sParam="," />
+            <Action type="3" message="1702" wParam="0" lParam="768" sParam="" />
+            <Action type="3" message="1701" wParam="0" lParam="1609" sParam="" />
+        </Macro>
         <Macro name="UnwrapAll" Ctrl="yes" Alt="yes" Shift="no" Key="85">
             <Action type="0" message="2013" wParam="0" lParam="0" sParam="" />
             <Action type="1" message="2170" wParam="0" lParam="0" sParam="" />
