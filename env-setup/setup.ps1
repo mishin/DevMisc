@@ -44,6 +44,7 @@ git config --global merge.tool kdiff3
 # git aliases
 git config --global alias.pa "!git add -A && git commit -v && git pull && git push"
 git config --global alias.ca "!git add -A && git commit -v"
+git config --global alias.cp "!git commit -v && git pull && git push"
 
 cinstm linqpad4
 $linqpadScriptDirectory = "$localDevMiscLocation\LINQPad"
