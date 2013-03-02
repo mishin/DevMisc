@@ -31,6 +31,20 @@ cinstm githubforwindows
 #cinstm git-flow-dependencies - see https://github.com/nvie/gitflow
 #cinstm git.alias.standup
 
+# source necessary files to add git to our path
+# import the GitHub shell settings from the GitHub for Windows install
+$githubShellPath = "$env:LOCALAPPDATA\GitHub\shell.ps1"
+if (test-path -PathType Leaf $githubShellPath)
+{
+    . $githubShellPath
+}
+# this is the profile that GitHub passes for its own shell, so source that here to get the same effect
+$githubProfilePath = "$env:github_posh_git\profile.example.ps1"
+if (test-path -PathType Leaf $githubProfilePath)
+{
+    . $githubProfilePath
+}
+
 $docs = [environment]::GetFolderPath('mydocuments')
 $env:path += ";$docs\bin"
 
