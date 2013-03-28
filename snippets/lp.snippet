@@ -22,11 +22,11 @@
                     <ToolTip>Property name</ToolTip>
                     <Default>MyProperty</Default>
                 </Literal>
-			</Declarations>
+            </Declarations>
             <Code Language="csharp">
         <![CDATA[
-		private $type$ _$property$;
-		public $type$ $property$
+        private $type$ _$property$;
+        public $type$ $property$
         {
             get { return _$property$ ?? (_$property$ = Get$property$()); }
         }
@@ -35,7 +35,7 @@
         {
             throw new NotImplementedException();
         }
-		$end$]]>
+        $end$]]>
             </Code>
         </Snippet>
     </CodeSnippet>

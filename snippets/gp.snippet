@@ -2,9 +2,9 @@
 <CodeSnippets  xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
     <CodeSnippet Format="1.0.0">
         <Header>
-            <Title>Create And Register DependencyProperty</Title>
-            <Shortcut>dp</Shortcut>
-            <Description>Code snippet for creating a dependency property and registering it</Description>
+            <Title>readonly field (to be set in ctor) and property with getter</Title>
+            <Shortcut>gp</Shortcut>
+            <Description>Code snippet for creating a getter-only property and readonly backing field - field should be set in ctor</Description>
             <Author>James Manning</Author>
             <SnippetTypes>
                 <SnippetType>Expansion</SnippetType>
@@ -22,27 +22,15 @@
                     <ToolTip>Property name</ToolTip>
                     <Default>MyProperty</Default>
                 </Literal>
-                <Literal default="true" Editable="false">
-                    <ID>classname</ID> 
-                    <ToolTip>Class name</ToolTip> 
-                    <Function>ClassName()</Function> 
-                    <Default>ClassNamePlaceholder</Default> 
-                </Literal>
             </Declarations>
             <Code Language="csharp">
         <![CDATA[
-        public static readonly DependencyProperty $property$Property =
-            DependencyProperty.Register("$property$", 
-                                        typeof($type$),
-                                        typeof($classname$),
-                                        new PropertyMetadata(default($type$)));
-        
+        private readonly $type$ $end$_$property$;
         public $type$ $property$
         {
-            get { return ($type$)GetValue($property$Property); }
-            set { SetValue($property$Property, value); }
+            get { return _$property$; }
         }
-        $end$]]>
+]]>
             </Code>
         </Snippet>
     </CodeSnippet>
