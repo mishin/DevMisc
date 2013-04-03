@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CodeSnippets  xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+    <CodeSnippet Format="1.0.0">
+        <Header>
+            <Title>invoke Dump method with a useful identification string</Title>
+            <Shortcut>d</Shortcut>
+            <Description>Code snippet for invoking the Dump extension method with the expression also being passed as the identification string into Dump</Description>
+            <Author>James Manning</Author>
+            <SnippetTypes>
+                <SnippetType>Expansion</SnippetType>
+            </SnippetTypes>
+        </Header>
+        <Snippet>
+            <Declarations>
+                <Literal>
+                    <ID>expression</ID>
+                    <ToolTip>Expression</ToolTip>
+                    <Default>expression</Default>
+                </Literal>
+            </Declarations>
+            <Code Language="csharp">
+                <![CDATA[$expression$.Dump("$expression$");$end$]]>
+            </Code>
+        </Snippet>
+    </CodeSnippet>
+</CodeSnippets>
