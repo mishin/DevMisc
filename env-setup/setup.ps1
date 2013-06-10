@@ -60,6 +60,9 @@ git config --global alias.pa "!git add -A && git commit -v && git pull && git pu
 git config --global alias.ca "!git add -A && git commit -v"
 git config --global alias.cp "!git commit -v && git pull && git push"
 
+# avoid the git gui popup dialog about compressing the database due to loose objects
+git config --global gui.gcwarning false
+
 cinstm linqpad4
 $linqpadScriptDirectory = "$localDevMiscLocation\LINQPad"
 $linqpadAppDataDirectory = "$env:APPDATA\LINQPad"
