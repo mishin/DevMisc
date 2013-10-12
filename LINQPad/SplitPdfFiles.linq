@@ -42,22 +42,28 @@
   <Namespace>PdfSharp.Pdf.Security</Namespace>
 </Query>
 
-foreach (var filename in Directory.GetFiles(@"C:\Users\james\Desktop\taxes-2012-scans", "*.pdf"))
+// populate with whatever set of files should be considered for split
+var sourceFilePaths = Directory.GetFiles(@"C:\Users\james\Desktop\taxes-2012-scans", "*.pdf");
+
+foreach (var sourceFilePath in sourceFilePaths)
 {
     // Open the file
-    PdfDocument inputDocument = PdfReader.Open(filename, PdfDocumentOpenMode.Import);
+    PdfDocument inputDocument = PdfReader.Open(sourceFilePath, PdfDocumentOpenMode.Import);
     
     if (inputDocument.PageCount < 2)
     {
         // only split pdf files that have multiple pages
         continue;
     }
-    Console.WriteLine ("Splitting {0}", filename);
+    Console.WriteLine ("Splitting {0}", sourceFilePath);
 
-    string name = Path.GetFileNameWithoutExtension(filename);
-    string outputDir = Path.GetDirectoryName(filename);
+    string name = Path.GetFileNameWithoutExtension(sourceFilePath);
+    string outputDir = Path.GetDirectoryName(sourceFilePath);
     for (int idx = 0; idx < inputDocument.PageCount; idx++)
     {
+        var outputFilename = String.Format("{0}-page{1}.pdf", name, idx + 1);
+        var outputPath = Path.Combine(outputDir, outputFilename);
+
         // Create new document
         PdfDocument outputDocument = new PdfDocument();
         outputDocument.Version = inputDocument.Version;
@@ -67,8 +73,6 @@ foreach (var filename in Directory.GetFiles(@"C:\Users\james\Desktop\taxes-2012-
         
         // Add the page and save it
         outputDocument.AddPage(inputDocument.Pages[idx]);
-        var outputFilename = String.Format("{0}-page{1}.pdf", name, idx + 1);
-        var outputPath = Path.Combine(outputDir, outputFilename);
         Console.WriteLine ("    Writing {0}", outputPath);
         outputDocument.Save(outputPath);
     }
