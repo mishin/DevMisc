@@ -1,9 +1,9 @@
-<Query Kind="Statements">
+<Query Kind="Expression">
   <Connection>
-    <ID>4995e2a3-152c-43e7-bb14-da49a48a25b1</ID>
+    <ID>bc340f9f-ec80-42c8-96a2-14179b037eba</ID>
     <Persist>true</Persist>
     <Server>3bhs001</Server>
-    <Database>Assessment</Database>
+    <Database>ClientDB</Database>
     <ShowServer>true</ShowServer>
   </Connection>
   <Reference>&lt;RuntimeDirectory&gt;\Microsoft.Build.Framework.dll</Reference>
@@ -23,24 +23,23 @@
   <Reference>&lt;RuntimeDirectory&gt;\System.Web.RegularExpressions.dll</Reference>
   <Reference>&lt;RuntimeDirectory&gt;\System.Web.Services.dll</Reference>
   <Reference>&lt;RuntimeDirectory&gt;\System.Windows.Forms.dll</Reference>
+  <NuGetReference>morelinq</NuGetReference>
   <Namespace>MoreLinq</Namespace>
   <Namespace>System.Net</Namespace>
   <Namespace>System.Web</Namespace>
 </Query>
 
-var query =
-    from metaTable in this.Mapping.GetTables()
-    where metaTable.TableName != "[sysdiagrams]" // ignore SSMS diagrams table
-    
-    from metaDataMember in metaTable.RowType.DataMembers
-    where metaDataMember.DbType != null // only view actual columns
-    
-    where metaDataMember.CanBeNull
-    
-    select new
-    {
-        TableName = metaTable.TableName,
-        ColumnName = metaDataMember.MappedName,
-        ColumnType = metaDataMember.DbType,
-    };
-query.Dump();
+from metaTable in this.Mapping.GetTables()
+where metaTable.TableName != "[sysdiagrams]" // ignore SSMS diagrams table
+
+from metaDataMember in metaTable.RowType.DataMembers
+where metaDataMember.DbType != null // only view actual columns
+
+where metaDataMember.MappedName.ToLower().Contains("cme")
+
+select new
+{
+    TableName = metaTable.TableName,
+    ColumnName = metaDataMember.MappedName,
+    ColumnType = metaDataMember.DbType,
+}
