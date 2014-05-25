@@ -123,9 +123,10 @@ git config --global diff.tool kdiff3
 git config --global merge.tool kdiff3
 
 # git aliases
-git config --global alias.pa "!git add -A && git commit -v && git pull && git push"
+git config --global alias.pa "!git add -A && git commit -v && git pull --rebase && git push"
 git config --global alias.ca "!git add -A && git commit -v"
-git config --global alias.cp "!git commit -v && git pull && git push"
+git config --global alias.cp "!git commit -v && git pull --rebase && git push"
+git config --global alias.pp "!git pull --rebase && git push"
 
 # avoid the git gui popup dialog about compressing the database due to loose objects
 git config --global gui.gcwarning false
