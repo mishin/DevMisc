@@ -40,6 +40,16 @@
             <Action type="0" message="2326" wParam="0" lParam="0" sParam="" />
             <Action type="0" message="2326" wParam="0" lParam="0" sParam="" />
         </Macro>
+        <Macro name="CommaifyToOneLine" Ctrl="yes" Alt="yes" Shift="no" Key="67">
+            <Action type="0" message="2013" wParam="0" lParam="0" sParam="" />
+            <Action type="2" message="0" wParam="42013" lParam="0" sParam="" />
+            <Action type="3" message="1700" wParam="0" lParam="0" sParam="" />
+            <Action type="3" message="1601" wParam="0" lParam="0" sParam=" " />
+            <Action type="3" message="1625" wParam="0" lParam="0" sParam="" />
+            <Action type="3" message="1602" wParam="0" lParam="0" sParam="," />
+            <Action type="3" message="1702" wParam="0" lParam="770" sParam="" />
+            <Action type="3" message="1701" wParam="0" lParam="1609" sParam="" />
+        </Macro>
     </Macros>
     <UserDefinedCommands>
         <Command name="Launch in Firefox" Ctrl="yes" Alt="yes" Shift="yes" Key="88">firefox &quot;$(FULL_CURRENT_PATH)&quot;</Command>
