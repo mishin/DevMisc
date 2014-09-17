@@ -127,6 +127,8 @@ git config --global alias.pa "!git add -A && git commit -v && git pull --rebase 
 git config --global alias.ca "!git add -A && git commit -v"
 git config --global alias.cp "!git commit -v && git pull --rebase && git push"
 git config --global alias.pp "!git pull --rebase && git push"
+git config --global alias.ae "!git config --global --edit"
+git config --global alias.a "!git config --get-regexp alias"
 
 # avoid the git gui popup dialog about compressing the database due to loose objects
 git config --global gui.gcwarning false
