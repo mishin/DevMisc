@@ -130,6 +130,7 @@ git config --global alias.pp "!git pull --rebase && git push"
 git config --global alias.ae "!git config --global --edit"
 git config --global alias.a "!git config --get-regexp alias"
 git config --global alias.pps "!git stash save --include-untracked --no-keep-index && git pull --rebase && git push && git stash pop"
+git config --global alias.pristine "!git reset --hard && git clean -x -f -d"
 
 # avoid the git gui popup dialog about compressing the database due to loose objects
 git config --global gui.gcwarning false
