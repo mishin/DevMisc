@@ -13,11 +13,11 @@
         <GUIConfig name="UserDefineDlg" position="undocked">hide</GUIConfig>
         <GUIConfig name="TabSetting" size="4" replaceBySpace="yes" />
         <!--App position-->
-        <GUIConfig name="AppPosition" x="30" y="27" width="955" height="659" isMaximized="yes" />
+        <GUIConfig name="AppPosition" x="2720" y="465" width="955" height="659" isMaximized="yes" />
         <!-- For the primary scintilla view,
              2 status for Attribut lineNumberMargin, bookMarkMargin, indentGuideLine and currentLineHilitingShow: "show" or "hide"
              4 status for Attribut folderMarkStyle : "simple", "arrow", "circle" and "box"  -->
-        <GUIConfig name="ScintillaPrimaryView" lineNumberMargin="show" bookMarkMargin="show" folderMarkStyle="box" indentGuideLine="show" currentLineHilitingShow="show" Wrap="no" edge="line" edgeNbColumn="100" wrapSymbolShow="hide" zoom="0" whiteSpaceShow="hide" eolShow="hide" lineWrapMethod="aligned" zoom2="0" borderWidth="2" />
+        <GUIConfig name="ScintillaPrimaryView" lineNumberMargin="show" bookMarkMargin="show" folderMarkStyle="box" indentGuideLine="show" currentLineHilitingShow="show" Wrap="no" edge="line" edgeNbColumn="100" wrapSymbolShow="hide" zoom="1" whiteSpaceShow="hide" eolShow="hide" lineWrapMethod="aligned" zoom2="1" borderWidth="2" disableAdvancedScrolling="no" />
         <!-- For the secodary scintilla view,
              2 status for Attribut lineNumberMargin, bookMarkMargin, indentGuideLine and currentLineHilitingShow: "show" or "hide"
              4 status for Attribut folderMarkStyle : "simple", "arrow", "circle" and "box" -->
@@ -53,7 +53,7 @@
                                 1 : simple backup
                                 2 : verbose backup
                       -->
-        <GUIConfig name="Backup" action="0" useCustumDir="no" dir="" />
+        <GUIConfig name="Backup" action="0" useCustumDir="no" dir="" isSnapshotMode="yes" snapshotBackupTiming="7000" />
         <GUIConfig name="TaskList">no</GUIConfig>
         <GUIConfig name="SaveOpenFileInSameDir">no</GUIConfig>
         <!--
@@ -68,7 +68,7 @@
 						3 : bottom
 						>= 4 : undocked -> FloatingWindow id
 			-->
-        <GUIConfig name="noUpdate" intervalDays="15" nextUpdateDate="20130216">no</GUIConfig>
+        <GUIConfig name="noUpdate" intervalDays="15" nextUpdateDate="20150731">no</GUIConfig>
         <GUIConfig name="MaitainIndent">yes</GUIConfig>
         <GUIConfig name="MRU">no</GUIConfig>
         <GUIConfig name="URL">2</GUIConfig>
@@ -84,40 +84,66 @@
         <GUIConfig name="openSaveDir" value="0" defaultDirPath="" />
         <GUIConfig name="titleBar" short="no" />
         <GUIConfig name="stylerTheme" path="C:\Users\james\AppData\Roaming\Notepad++\stylers.xml" />
-        <GUIConfig name="DockingManager" leftWidth="200" rightWidth="834" topHeight="200" bottomHeight="200">
-            <PluginDlg pluginName="Notepad++::InternalFunction" id="44070" curr="0" prev="-1" isVisible="no" />
-            <PluginDlg pluginName="Notepad++::InternalFunction" id="42051" curr="1" prev="-1" isVisible="yes" />
-            <PluginDlg pluginName="Notepad++::InternalFunction" id="42052" curr="1" prev="-1" isVisible="yes" />
+        <GUIConfig name="DetectEncoding">yes</GUIConfig>
+        <GUIConfig name="auto-insert" parentheses="no" brackets="no" curlyBrackets="no" quotes="no" doubleQuotes="no" htmlXmlTag="no" />
+        <GUIConfig name="delimiterSelection" leftmostDelimiter="40" rightmostDelimiter="41" delimiterSelectionOnEntireDocument="no" />
+        <GUIConfig name="multiInst" setting="0" />
+        <GUIConfig name="MISC" fileSwitcherWithoutExtColumn="no" backSlashIsEscapeCharacterForSql="yes" />
+        <GUIConfig name="DockingManager" leftWidth="200" rightWidth="199" topHeight="200" bottomHeight="506">
+            <PluginDlg pluginName="ComparePlugin.dll" id="9" curr="1" prev="-1" isVisible="no" />
             <PluginDlg pluginName="dummy" id="0" curr="3" prev="-1" isVisible="yes" />
+            <PluginDlg pluginName="Automation Scripts" id="2" curr="0" prev="-1" isVisible="no" />
+            <PluginDlg pluginName="Notepad++::InternalFunction" id="42051" curr="1" prev="-1" isVisible="no" />
+            <PluginDlg pluginName="Notepad++::InternalFunction" id="42052" curr="1" prev="-1" isVisible="no" />
+            <PluginDlg pluginName="Automation Scripts" id="1" curr="0" prev="-1" isVisible="yes" />
+            <PluginDlg pluginName="Notepad++::InternalFunction" id="44070" curr="0" prev="-1" isVisible="no" />
             <ActiveTabs cont="0" activeTab="-1" />
-            <ActiveTabs cont="1" activeTab="1" />
+            <ActiveTabs cont="1" activeTab="-1" />
             <ActiveTabs cont="2" activeTab="-1" />
-            <ActiveTabs cont="3" activeTab="-1" />
+            <ActiveTabs cont="3" activeTab="0" />
         </GUIConfig>
     </GUIConfigs>
     <!-- The History of opened files list -->
-    <FindHistory nbMaxFindHistoryPath="10" nbMaxFindHistoryFilter="10" nbMaxFindHistoryFind="10" nbMaxFindHistoryReplace="10" matchWord="no" matchCase="no" wrap="yes" directionDown="yes" fifRecuisive="yes" fifInHiddenFolder="no" dlgAlwaysVisible="no" fifFilterFollowsDoc="no" fifFolderFollowsDoc="no" searchMode="0" transparencyMode="1" transparency="150" dotMatchesNewline="no">
-        <Find name="global" />
-        <Find name="royal" />
-        <Find name="source" />
-        <Find name="posh-git" />
-        <Find name="notepad" />
-        <Find name="github" />
-        <Find name="function s" />
-        <Find name='&quot;&quot;' />
-        <Find name="edit-files" />
-        <Find name="function n" />
+    <FindHistory nbMaxFindHistoryPath="10" nbMaxFindHistoryFilter="10" nbMaxFindHistoryFind="10" nbMaxFindHistoryReplace="10" matchWord="no" matchCase="no" wrap="yes" directionDown="no" fifRecuisive="yes" fifInHiddenFolder="no" dlgAlwaysVisible="no" fifFilterFollowsDoc="no" fifFolderFollowsDoc="no" searchMode="2" transparencyMode="1" transparency="150" dotMatchesNewline="no">
+        <Path name="C:\Users\james\Documents\Visual Studio 2013\Projects\ConsoleApplication3" />
+        <Path name="C:\github\generator-react-webpack" />
+        <Find name="\s*$" />
+        <Find name="\s*&#x0009;\s*" />
+        <Find name="^\s*" />
+        <Find name="kenny kent" />
+        <Find name='\s+&quot; \}' />
+        <Find name='\s+&quot; }' />
+        <Find name='\s+&quot;,' />
+        <Find name='\s*&quot;,' />
+        <Find name='\s*&quot;' />
+        <Find name='\s*&quot;, &quot;\s*' />
+        <Replace name='&quot; },' />
+        <Replace name='&quot;, Column2 = &quot;' />
+        <Replace name='new { Column1 = &quot;' />
+        <Replace name='new { &quot;' />
+        <Replace name='&quot; \}' />
+        <Replace name='&quot; }' />
+        <Replace name='&quot;,' />
         <Replace name='&quot;' />
+        <Replace name='&quot;, &quot;' />
+        <Replace name="\)," />
     </FindHistory>
     <History nbMaxFile="15" inSubMenu="no" customLength="-1">
-        <File filename="C:\Users\james\AppData\Roaming\LINQPad\QueryLocations.txt" />
-        <File filename="C:\Users\james\AppData\Roaming\LINQPad\SnippetLocations.txt" />
-        <File filename="C:\Users\james\AppData\Roaming\LINQPad\querypath.txt" />
-        <File filename="C:\Users\james\AppData\Roaming\LINQPad\RoamingUserOptions.xml" />
-        <File filename="C:\Chocolatey\chocolateyinstall\functions\Chocolatey-List.ps1" />
-        <File filename="C:\Users\james\Documents\GitHub\DevMisc\env-setup\setup.ps1" />
-        <File filename="C:\Users\james\Documents\WindowsPowerShell\profile.ps1" />
-        <File filename="C:\Users\james\Documents\GitHub\DevMisc\env-setup\template-docs\WindowsPowerShell\profile.ps1" />
+        <File filename="C:\Users\james\AppData\Local\Microsoft\Windows\Temporary Internet Files\Content.Outlook\5TB1YSVM\client_dedupe_1.linq" />
+        <File filename="C:\github\Main\DBChangeScripts\ClientDB\sprocs\sp_InsertResults_ClientReviewMonthlySummary.proc.sql" />
+        <File filename="C:\github\Main\LINQPad\queries\ClientDb\MergeDuplicateClients.linq" />
+        <File filename="C:\temp\edmunds-dealers.json" />
+        <File filename="C:\temp\raw.txt" />
+        <File filename="C:\Program Files (x86)\Notepad++\change.log" />
+        <File filename="C:\github\Main\ConsoleApps\ThreeBirds.Background\SharedConfiguration\app.config" />
+        <File filename="C:\temp\ytdlmp3\CaptainHoers\Spitfire&apos;s Day Off.mp3" />
+        <File filename="C:\github\Main\LINQPad\license-key.txt" />
+        <File filename="C:\Users\james\Documents\changes-made.txt" />
+        <File filename="C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC#\Snippets\1033\Visual C#\cw.snippet" />
+        <File filename="C:\Users\james\Downloads\mlp_overhaul_bulk\mlp_overhaul_bulk\pony_IK_rig.py" />
+        <File filename="C:\temp\lp.html" />
+        <File filename="C:\temp\ytdlmp3\dl.js" />
+        <File filename="E:\New Text Document.txt" />
     </History>
     <ProjectPanels>
         <ProjectPanel id="0" workSpaceFile="" />
