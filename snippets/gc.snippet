@@ -24,7 +24,10 @@
                 </Literal>
             </Declarations>
             <Code Language="csharp">
-<![CDATA[group $variable$ by new { $variable$.$property$ } into $variable$Group
+<![CDATA[group $variable$ by new
+{
+    $variable$.$property$,
+} into $variable$Group
 let count = $variable$Group.Count()
 orderby count descending
 select new
